@@ -1,5 +1,7 @@
 import './transaction.dart';
 import 'package:flutter/material.dart';
+import './transactionCard.dart';
+import './inputCard.dart';
 
 void main() => runApp(MyApp());
 
@@ -31,16 +33,21 @@ class _HomePage extends State<MyApp> {
           title: Text('Home'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Card(
               color: Colors.blue,
               child: Text('Chart'),
             ),
-            Card(
-              color: Colors.red,
-              child: Text('List of TX'),
+            Input(),
+            Column(
+              children: transaction.map((tx) {
+                return TransactionCard(
+                  amount: tx.amount,
+                  title: tx.title,
+                  date: tx.date,
+                );
+              }).toList(),
             ),
           ],
         ),
