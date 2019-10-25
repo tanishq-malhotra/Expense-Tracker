@@ -30,7 +30,7 @@ class TransactionCard extends StatelessWidget {
             ),
             padding: EdgeInsets.all(10),
             child: Text(
-              '\$$amount',
+              '\$${amount.toStringAsFixed(2)}',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.purple,
