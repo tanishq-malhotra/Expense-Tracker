@@ -18,7 +18,10 @@ class TransactionCard extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+            margin: EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 15,
+            ),
             decoration: BoxDecoration(
               border: Border.all(
                 color: Colors.purple,
