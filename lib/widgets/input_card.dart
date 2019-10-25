@@ -20,6 +20,8 @@ class _InputState extends State<Input> {
     final titleText = titleController.text;
     final amount = double.parse(amountController.text);
     widget.newTransaction(titleText, amount);
+
+    Navigator.of(context).pop();
   }
 
   @override
