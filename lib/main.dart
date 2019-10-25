@@ -1,30 +1,9 @@
-import './transaction.dart';
 import 'package:flutter/material.dart';
-import './transactionCard.dart';
-import './inputCard.dart';
+import './widgets/user_transaction.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  createState() => _HomePage();
-}
-
-class _HomePage extends State<MyApp> {
-  List<Transaction> transaction = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 59.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Home Groceries',
-      amount: 29.2,
-      date: DateTime.now(),
-    )
-  ];
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,16 +18,7 @@ class _HomePage extends State<MyApp> {
               color: Colors.blue,
               child: Text('Chart'),
             ),
-            Input(),
-            Column(
-              children: transaction.map((tx) {
-                return TransactionCard(
-                  amount: tx.amount,
-                  title: tx.title,
-                  date: tx.date,
-                );
-              }).toList(),
-            ),
+            UserTransactions(),
           ],
         ),
       ),
