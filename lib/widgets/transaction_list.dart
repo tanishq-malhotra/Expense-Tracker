@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/transaction.dart';
 import './transaction_card.dart';
+import './no_transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transaction;
@@ -9,16 +10,18 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 400,
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return TransactionCard(
-            amount: transaction[index].amount,
-            title: transaction[index].title,
-            date: transaction[index].date,
-          );
-        },
-        itemCount: transaction.length,
-      ),
+      child: transaction.isEmpty
+          ? NoTransaction()
+          : ListView.builder(
+              itemBuilder: (context, index) {
+                return TransactionCard(
+                  amount: transaction[index].amount,
+                  title: transaction[index].title,
+                  date: transaction[index].date,
+                );
+              },
+              itemCount: transaction.length,
+            ),
     );
   }
 }

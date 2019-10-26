@@ -24,7 +24,7 @@ class TransactionCard extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.purple,
+                color: Theme.of(context).primaryColor,
                 width: 2,
               ),
             ),
@@ -33,7 +33,7 @@ class TransactionCard extends StatelessWidget {
               '\$${amount.toStringAsFixed(2)}',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.purple,
+                color: Theme.of(context).primaryColor,
                 fontSize: 20,
               ),
             ),
