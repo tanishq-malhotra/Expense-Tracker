@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter App',
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.deepPurple,
         accentColor: Colors.amber,
       ),
       home: MyApp(),
