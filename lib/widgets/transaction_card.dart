@@ -5,11 +5,14 @@ class TransactionCard extends StatelessWidget {
   final String title;
   final double amount;
   final DateTime date;
-
+  final String id;
+  final Function deleteTx;
   TransactionCard({
     @required this.title,
     @required this.amount,
     @required this.date,
+    @required this.id,
+    @required this.deleteTx,
   });
 
   @override
@@ -36,6 +39,11 @@ class TransactionCard extends StatelessWidget {
         ),
         subtitle: Text(
           DateFormat.yMMMd().format(date),
+        ),
+        trailing: IconButton(
+          icon: Icon(Icons.delete),
+          color: Theme.of(context).errorColor,
+          onPressed: () => deleteTx(id),
         ),
       ),
     );

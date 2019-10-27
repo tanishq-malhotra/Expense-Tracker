@@ -13,7 +13,8 @@ class HomePage extends StatelessWidget {
       title: 'Flutter App',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
-        accentColor: Colors.amber,
+        accentColor: Colors.deepPurpleAccent,
+        errorColor: Colors.red,
         textTheme: ThemeData.light().textTheme.copyWith(
               button: TextStyle(color: Colors.white),
             ),
@@ -57,6 +58,14 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
+  void _deleteTransaction(String id) {
+    setState(() {
+      _userTransactions.removeWhere((tx) {
+        return tx.id == id;
+      });
+    });
+  }
+
   List<Transaction> get _recentTransactions {
     return _userTransactions.where((tx) {
       return tx.date.isAfter(
@@ -84,7 +93,10 @@ class _MyAppState extends State<MyApp> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Chart(_recentTransactions),
-            TransactionList(_userTransactions),
+            TransactionList(
+              _userTransactions,
+              _deleteTransaction,
+            ),
           ],
         ),
       ),
