@@ -14,6 +14,9 @@ class HomePage extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         accentColor: Colors.amber,
+        textTheme: ThemeData.light().textTheme.copyWith(
+              button: TextStyle(color: Colors.white),
+            ),
       ),
       home: MyApp(),
     );
