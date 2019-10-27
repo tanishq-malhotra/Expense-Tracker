@@ -16,12 +16,13 @@ class _InputState extends State<Input> {
   DateTime _selectedDate;
 
   void _submitData() {
-    if (_titleController.text.length <= 0 || _amountController.text.length <= 0)
-      return;
+    if (_titleController.text.length <= 0 ||
+        _amountController.text.length <= 0 ||
+        _selectedDate == null) return;
 
     final titleText = _titleController.text;
     final amount = double.parse(_amountController.text);
-    widget.newTransaction(titleText, amount);
+    widget.newTransaction(titleText, amount, _selectedDate);
 
     Navigator.of(context).pop();
   }

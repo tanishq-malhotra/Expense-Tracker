@@ -31,12 +31,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   List<Transaction> _userTransactions = [];
 
-  void _addNewTransaction(String txTitle, double txAmount) {
+  void _addNewTransaction(String txTitle, double txAmount, DateTime txDate) {
     final newTx = Transaction(
       title: txTitle,
       amount: txAmount,
-      id: DateTime.now().toString(),
-      date: DateTime.now(),
+      id: txDate.toString(),
+      date: txDate,
     );
 
     setState(() {
