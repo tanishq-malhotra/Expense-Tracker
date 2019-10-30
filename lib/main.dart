@@ -30,7 +30,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool _showChart = true;
+  bool _showChart = false;
   List<Transaction> _userTransactions = [];
 
   void _addNewTransaction(String txTitle, double txAmount, DateTime txDate) {
@@ -79,8 +79,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    bool isLandscape =
-        MediaQuery.of(context).orientation == Orientation.landscape;
+    final mediaQuery = MediaQuery.of(context);
+    bool isLandscape = mediaQuery.orientation == Orientation.landscape;
 
     var appBar = AppBar(
       title: Text('Expense Tracker'),
@@ -93,9 +93,9 @@ class _MyAppState extends State<MyApp> {
     );
 
     var txList = Container(
-      height: (MediaQuery.of(context).size.height * 0.7 -
+      height: (mediaQuery.size.height * 0.7 -
           appBar.preferredSize.height -
-          MediaQuery.of(context).padding.top),
+          mediaQuery.padding.top),
       child: TransactionList(
         _userTransactions,
         _deleteTransaction,
@@ -125,18 +125,18 @@ class _MyAppState extends State<MyApp> {
               ),
             if (!isLandscape)
               Container(
-                height: (MediaQuery.of(context).size.height * 0.32 -
+                height: (mediaQuery.size.height * 0.32 -
                     appBar.preferredSize.height -
-                    MediaQuery.of(context).padding.top),
+                    mediaQuery.padding.top),
                 child: Chart(_recentTransactions),
               ),
             if (!isLandscape) txList,
             if (isLandscape)
               _showChart
                   ? Container(
-                      height: (MediaQuery.of(context).size.height * 0.7 -
+                      height: (mediaQuery.size.height * 0.7 -
                           appBar.preferredSize.height -
-                          MediaQuery.of(context).padding.top),
+                          mediaQuery.padding.top),
                       child: Chart(_recentTransactions),
                     )
                   : txList,
