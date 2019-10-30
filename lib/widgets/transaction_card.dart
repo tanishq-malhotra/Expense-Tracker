@@ -7,7 +7,7 @@ class TransactionCard extends StatelessWidget {
   final DateTime date;
   final String id;
   final Function deleteTx;
-  TransactionCard({
+  const TransactionCard({
     @required this.title,
     @required this.amount,
     @required this.date,
@@ -32,7 +32,7 @@ class TransactionCard extends StatelessWidget {
         ),
         title: Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
@@ -42,13 +42,13 @@ class TransactionCard extends StatelessWidget {
         ),
         trailing: MediaQuery.of(context).size.width > 600
             ? FlatButton.icon(
-                icon: Icon(Icons.delete),
+                icon: const Icon(Icons.delete),
                 textColor: Theme.of(context).errorColor,
-                label: Text("Delete"),
+                label: const Text("Delete"),
                 onPressed: () => deleteTx(id),
               )
             : IconButton(
-                icon: Icon(Icons.delete),
+                icon: const Icon(Icons.delete),
                 color: Theme.of(context).errorColor,
                 onPressed: () => deleteTx(id),
               ),

@@ -59,11 +59,11 @@ class _InputState extends State<Input> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               TextField(
-                decoration: InputDecoration(labelText: 'Title'),
+                decoration: const InputDecoration(labelText: 'Title'),
                 controller: _titleController,
               ),
               TextField(
-                decoration: InputDecoration(labelText: 'Amount'),
+                decoration: const InputDecoration(labelText: 'Amount'),
                 controller: _amountController,
                 keyboardType: TextInputType.number,
               ),

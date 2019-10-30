@@ -74,7 +74,7 @@ class _MyAppState extends State<MyApp> {
     return _userTransactions.where((tx) {
       return tx.date.isAfter(
         DateTime.now().subtract(
-          Duration(days: 7),
+          const Duration(days: 7),
         ),
       );
     }).toList();
@@ -86,10 +86,10 @@ class _MyAppState extends State<MyApp> {
     bool isLandscape = mediaQuery.orientation == Orientation.landscape;
 
     var appBar = AppBar(
-      title: Text('Expense Tracker'),
+      title: const Text('Expense Tracker'),
       actions: <Widget>[
         IconButton(
-          icon: Icon(Icons.add),
+          icon: const Icon(Icons.add),
           onPressed: () => _addNewTransactionButton(context),
         ),
       ],
@@ -115,7 +115,7 @@ class _MyAppState extends State<MyApp> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("show chart"),
+                  const Text("show chart"),
                   Switch.adaptive(
                     activeColor: Theme.of(context).accentColor,
                     value: _showChart,
@@ -150,7 +150,7 @@ class _MyAppState extends State<MyApp> {
       floatingActionButton: Platform.isIOS
           ? Container()
           : FloatingActionButton(
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
               onPressed: () => _addNewTransactionButton(context),
             ),
     );

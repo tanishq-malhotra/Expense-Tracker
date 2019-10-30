@@ -7,8 +7,8 @@ class NoTransaction extends StatelessWidget {
       builder: (context, contraints) {
         return Column(
           children: <Widget>[
-            Text("No trasactions added"),
-            SizedBox(
+            const Text("No trasactions added"),
+            const SizedBox(
               height: 10,
             ),
             Container(
