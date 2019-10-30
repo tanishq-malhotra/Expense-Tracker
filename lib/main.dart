@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+
 import './models/transaction.dart';
 import './widgets/input_card.dart';
 import './widgets/transaction_list.dart';
@@ -113,7 +116,8 @@ class _MyAppState extends State<MyApp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text("show chart"),
-                  Switch(
+                  Switch.adaptive(
+                    activeColor: Theme.of(context).accentColor,
                     value: _showChart,
                     onChanged: (val) {
                       setState(() {
@@ -143,10 +147,12 @@ class _MyAppState extends State<MyApp> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () => _addNewTransactionButton(context),
-      ),
+      floatingActionButton: Platform.isIOS
+          ? Container()
+          : FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () => _addNewTransactionButton(context),
+            ),
     );
   }
 }
